@@ -1,6 +1,7 @@
+import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expense/Expenses";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -23,10 +24,18 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log(expense);
+  };
+
+  const saveSelectYearHandler = (selectYearData) => {
+    console.log(selectYearData);
+  }
+
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <Expenses item={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses item={expenses} onSaveSelectedYear={saveSelectYearHandler}/>
     </div>
   );
 }
